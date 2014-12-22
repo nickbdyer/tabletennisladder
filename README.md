@@ -7,13 +7,14 @@ for the final few weeks.
 - The problem
 
   This project was inspired by the work carried out by 3 of our senior cohort, 
-  their work is shown (here)[https://github.com/danjocutler/tournament_prog].
+  their work is shown [here](https://github.com/danjocutler/tournament_prog).
 
   The only difficult presented by their method was that the tournament's
   progress, was limited to the willingness of other people to play their
   games. This resulted in the tournament not being completed. 
 
 - The idea
+
   We have opted for a ladder configuration, something a few of us are familiar
   with from playing squash. This format prevents the issue relating to
   progression, but does mean that people don't necessarily have the same number
