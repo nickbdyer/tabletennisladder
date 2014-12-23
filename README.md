@@ -35,29 +35,29 @@ for the final few weeks.
 
 ###Testing Framworks - Working Environment
 
-- Grunt
+######Grunt
 We'll be using grunt as our task runner, for running our tests and checking 
 our javascript syntax.
-- Jshint + Watch
-Linting tool. Use the command 
+######Jshint + Watch
 ```sh
 $ grunt watch
 ```
+Linting tool. Use the command 
 In a seperate terminal window to check for errors/typos each time a file
 is saved.
 
-- Mocha-CasperJs
-We will be using Mocha and Casperjs with Chai matchers for our BDD. 
-Configured with grunt we simply need to run
+######Mocha-CasperJs
 ```sh
 $ grunt mocha_casperjs
 ```
+We will be using Mocha and Casperjs with Chai matchers for our BDD. 
+Configured with grunt we simply need to run
 to run our feature tests
 
-- Jasmine-node
-Jasmine is our preffered unit testing framework of choice. Configured
-with grunt we simply need to run
+######Jasmine-node
 ```sh
 $ grunt jasmine-node
 ```
+Jasmine is our preffered unit testing framework of choice. Configured
+with grunt we simply need to run
 to run our unit tests. 
