@@ -13,12 +13,20 @@ module.exports = function(grunt) {
         }
       }
     },
+    jasmine_node: {
+      options: {
+        forceExit: true,
+        all: ['spec/']
+      }
+    },
     watch : {
       files: ['<%= jshint.files %>'],
       tasks: ['jshint']
     }
   });
 
+  grunt.loadNpmTasks('grunt-jasmine-node');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.registerTask('default', ['jshint']);
-}
+};

@@ -33,3 +33,15 @@ for the final few weeks.
 - TDD
 - BDD
 
+###Testing Framworks - Working Environment
+
+- Grunt
+We'll be using grunt as our task runner, for running our tests and checking 
+our javascript syntax.
+- Jshint + Watch
+Linting tool. Use the command 
+```sh
+$ grunt watch
+```
+In a seperate terminal window to check for errors/typos each time a file
+is saved.
