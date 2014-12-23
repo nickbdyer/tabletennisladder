@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/nickbdyer/tabletennisladder",
   "devDependencies": {
-    "grunt": "^0.4.5"
+    "grunt": "^0.4.5",
+    "jasmine-node": "^1.14.5"
   }
 }
