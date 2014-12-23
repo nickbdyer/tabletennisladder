@@ -19,12 +19,20 @@ module.exports = function(grunt) {
         all: ['spec/']
       }
     },
+    mocha_casperjs: {
+      options: {
+      }, 
+      files: {
+        src: ['test/**/*'] 
+      }
+    },
     watch : {
       files: ['<%= jshint.files %>'],
       tasks: ['jshint']
     }
   });
 
+  grunt.loadNpmTasks('grunt-mocha-casperjs');
   grunt.loadNpmTasks('grunt-jasmine-node');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');

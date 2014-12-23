@@ -45,3 +45,19 @@ $ grunt watch
 ```
 In a seperate terminal window to check for errors/typos each time a file
 is saved.
+
+- Mocha-CasperJs
+We will be using Mocha and Casperjs with Chai matchers for our BDD. 
+Configured with grunt we simply need to run
+```sh
+$ grunt mocha_casperjs
+```
+to run our feature tests
+
+- Jasmine-node
+Jasmine is our preffered unit testing framework of choice. Configured
+with grunt we simply need to run
+```sh
+$ grunt jasmine-node
+```
+to run our unit tests. 
