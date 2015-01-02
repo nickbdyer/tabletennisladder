@@ -1,6 +1,16 @@
 var express = require('express');
+var mongoose = require('mongoose');
 var app = express();
 var server = require('http').createServer(app);
+var Schema = mongoose.Schema;
+
+mongoose.connect('mongodb://localhost/ttladder_development');
+
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function (callback) {
+    console.log("yay!")
+  });
 
 app.use(express.static(__dirname + '/views'));
 
