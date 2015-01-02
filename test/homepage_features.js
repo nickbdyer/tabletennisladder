@@ -1,4 +1,4 @@
-var Player = require('../lib/models/Player.js');
+var Player = require('../lib/models/Player');
 
 describe('homepage', function(){
   before(function(){
@@ -19,7 +19,7 @@ describe('homepage', function(){
   });
 
   it('When a player exists in the db, its name is shown', function() {
-   // var rich = new Player({name: "Rich"});
+    var rich = new Player({name: "Rich"});
       casper.then(function(){
         console.log(rich.name)
         expect("body").to.contain.text("Rich")
