@@ -21,6 +21,19 @@ for the final few weeks.
   of games played at the end of the season. However, the latter has been deemed
   the lesser evil in this case. 
 
+- MVP Stages
+  * Skateboard: Array of names, with a swap button, specifying the name of each
+    player. Add players, remove players, edit player names. Rules page. 
+  * Scooter: Record a result of a game, automatic update of ladder. 
+    Record player stats. Count down to end of ladder awards.
+  * Bicycle: Challenge restrictions, number of times challenge, places above
+    you limit. 25% Challenge range.
+  * Motorbike: Sign up and sign in. 
+  * Car: Challenge other players, time limit associated with challenge,
+    restrict open challenges. 
+    Admin edit results, admin login. Good CSS. 
+  
+
 - Solution
 - How to run it
 - Images of what it looks like
