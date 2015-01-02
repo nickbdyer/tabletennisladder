@@ -23,18 +23,27 @@ module.exports = function(grunt) {
       options: {
       }, 
       files: {
-        src: ['test/**/*'] 
+        src: ['test/homepage_features.js'] 
       }
     },
     watch : {
       files: ['<%= jshint.files %>'],
       tasks: ['jshint']
+    },
+    express: {
+      options:{},
+      dev: {
+        options: {
+          script: './server.js'
+        }
+      }
     }
   });
 
   grunt.loadNpmTasks('grunt-mocha-casperjs');
+  grunt.loadNpmTasks('grunt-express-server');
   grunt.loadNpmTasks('grunt-jasmine-node');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.registerTask('default', ['jshint']);
+  grunt.registerTask('default', ['express', 'jshint', 'mocha_casperjs']);
 };
