@@ -5,14 +5,14 @@ describe('homepage', function(){
 
   it('When there are no players', function(){
     casper.then(function(){
-      expect("body").to.have.text("There are no players");
+      expect("body").to.contain.text("There are no players");
     });
   });
 
   it('When there are no players a player can be added', function(){
     casper.then(function(){
       'a'.should.be.inDOM.and.be.visible;
-      expect("body").to.have.text("Table Tennis Lads");
+      expect("body").to.contain.text("Table Tennis Lads");
     });
   });
 
