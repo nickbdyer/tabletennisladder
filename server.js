@@ -3,6 +3,7 @@ var app = express();
 var server = require('http').createServer(app);
 var config = require('./config');
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
  // set the 'dbUrl' to the mongodb url that corresponds to the
  // environment we are in

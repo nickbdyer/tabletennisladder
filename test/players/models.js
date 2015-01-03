@@ -18,7 +18,7 @@ describe('Player: models', function () {
        // Confirm that that an error does not exist
        should.not.exist(err);
        // verify that the returned user is what we expect
-       createdPlayer.name.should.equal('Fabio');
+       createdPlayer.name.should.equal('Rich');
        // Call done to tell mocha that we are done with this test
        done();
      });
