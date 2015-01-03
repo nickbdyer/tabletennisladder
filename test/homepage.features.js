@@ -11,7 +11,7 @@ describe('homepage', function(){
 
   it('When there are no players a player can be added', function(){
     casper.then(function(){
-      'a'.should.be.inDOM.and.be.visible;
+      'input[value="add-player"]'.should.be.inDOM.and.be.visible;
       expect("body").to.contain.text("Table Tennis Lads");
     });
   });
@@ -23,7 +23,7 @@ describe('homepage', function(){
       this.fill('form[action="/"]',{
         name: 'Rich'
       }, true);
-      this.click('input[value="submit"]')
+      this.click('input[value="add-player"]')
       });
     casper.then(function(){
       expect("body").to.contain.text("Rich");
