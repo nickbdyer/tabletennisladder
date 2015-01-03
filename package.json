@@ -37,6 +37,7 @@
     "phantomjs": "^1.9.13"
   },
   "dependencies": {
+    "connect": "^3.3.3",
     "express": "^4.10.6",
     "mongodb": "^1.4.26",
     "mongoose": "^3.8.21"
