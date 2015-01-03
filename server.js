@@ -15,19 +15,18 @@ mongoose.connect(app.get('dbUrl'));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(__dirname + '/views'));
+app.use('/bower_components', express.static(__dirname + '/bower_components'));
+app.use('/app/app.js', express.static(__dirname + '/app/app.js'));
+app.use('/app/tableTennisLadderController.js', express.static(__dirname + '/app/tableTennisLadderController.js'));
+
 app.set('view engine', 'ejs');
 
-var mdb = mongoose.connection;
-mdb.on('error', console.error.bind(console, 'connection error:'));
-mdb.once('open', function (callback) {
-    console.log("yay!")
-  });
-
-
 app.get('/', function(request, response){
-  response.render("index.ejs");
+  Player.find(function (err, players) {
+    if(err) return next(err);
+    response.render("index.ejs", {playerlist: players})
+  });
 });
 
 app.post('/', function(request, response){
@@ -39,8 +38,19 @@ app.post('/', function(request, response){
     }
     console.log("player created")
   })
-  response.render("index.ejs");
+  Player.find(function (err, players) {
+    if(err) return next(err);
+  });
+  response.render("index.ejs", {playerlist: players});
 });
+
+
+var mdb = mongoose.connection;
+mdb.on('error', console.error.bind(console, 'connection error:'));
+mdb.once('open', function (callback) {
+    console.log("yay!")
+  });
+
 
 server.listen(3000, function(){
   console.log('Server listening on port 3000');

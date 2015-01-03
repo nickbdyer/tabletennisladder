@@ -25,7 +25,7 @@ describe('homepage', function(){
       }, true);
       this.click('input[value="add-player"]')
       });
-    casper.then(function(){
+    casper.thenOpen('http://localhost:3000/', function(){
       expect("body").to.contain.text("Rich");
       expect("body").not.to.contain.text("There are no players");
     });

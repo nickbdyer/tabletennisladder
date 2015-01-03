@@ -6,14 +6,20 @@
       <script src="bower_components/angular/angular.js"></script>
       <script src="bower_components/angular-resource/angular-resource.js"></script>
       <script src="app/app.js"></script>
+      <script src="app/tableTennisLadderController.js"></script>
     <title>Table Tennis Lads</title>
   </head>
   <body ng-controller="TableTennisLadderController">  
     <h1>Table Tennis Lads</h1>
+    <ul>
+      <% playerlist.forEach(function(player){ %>
+      <li><%= player.name %></li>
+      <% }); %>
+    </ul>
     <p>There are no players</p>
     <form action="/" method="post">
-      <input type="text" name="name">
-      <input type="submit" value="add-player">
+      <input class="form-control" type="text" name="name">
+      <input class="btn btn-default btn-primary" type="submit" value="add-player">
     </form>
   </body>
 </html>
