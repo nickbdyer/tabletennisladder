@@ -31,12 +31,15 @@
     "grunt-express-server": "^0.4.19",
     "grunt-jasmine-node": "^0.2.1",
     "grunt-mocha-casperjs": "^1.4.1",
+    "grunt-mocha-test": "^0.12.4",
     "jasmine-node": "^1.14.5",
     "mocha": "^2.1.0",
     "mocha-casperjs": "^0.5.3",
-    "phantomjs": "^1.9.13"
+    "phantomjs": "^1.9.13",
+    "should": "^4.4.2"
   },
   "dependencies": {
+    "connect": "^3.3.3",
     "express": "^4.10.6",
     "mongodb": "^1.4.26",
     "mongoose": "^3.8.21"

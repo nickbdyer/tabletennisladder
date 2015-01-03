@@ -24,6 +24,15 @@ module.exports = function(grunt) {
         all: ['spec/']
       }
     },
+    mochaTest: {
+      test: {
+        options: {
+          reporter: 'spec',
+          quiet: false
+        },
+        src: ['spec/players/models.js']
+      }
+     },
     mocha_casperjs: {
       options: {
       }, 
@@ -50,5 +59,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-jasmine-node');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.registerTask('default', ['express', 'mocha_casperjs']);
+  grunt.loadNpmTasks('grunt-mocha-test');
+  grunt.registerTask('default', ['express', 'mochaTest', 'mocha_casperjs']);
 };

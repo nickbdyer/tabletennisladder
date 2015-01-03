@@ -1,17 +1,21 @@
 var express = require('express');
 var app = express();
 var server = require('http').createServer(app);
+var config = require('./config');
 var mongoose = require('mongoose');
-var models = require('./lib/models')
 var Schema = mongoose.Schema;
 
-mongoose.connect('mongodb://localhost/ttladder_development');
+ // set the 'dbUrl' to the mongodb url that corresponds to the
+ // environment we are in
+ app.set('dbUrl', config.db[app.settings.env]);
+ // connect mongoose to the mongo dbUrl
+ mongoose.connect(app.get('dbUrl'));
 
-var db = mongoose.connection;
-// db.on('error', console.error.bind(console, 'connection error:'));
-// db.once('open', function (callback) {
-//     console.log("yay!")
-//   });
+var mdb = mongoose.connection;
+mdb.on('error', console.error.bind(console, 'connection error:'));
+mdb.once('open', function (callback) {
+    console.log("yay!")
+  });
 
 app.use(express.static(__dirname + '/views'));
 
