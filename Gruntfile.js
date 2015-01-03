@@ -30,7 +30,7 @@ module.exports = function(grunt) {
           reporter: 'spec',
           quiet: false
         },
-        src: ['test/players/models.js']
+        src: ['spec/players/models.js']
       }
      },
     mocha_casperjs: {
@@ -60,5 +60,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-mocha-test');
-  grunt.registerTask('default', ['express', 'mochaTest']);
+  grunt.registerTask('default', ['express', 'mochaTest', 'mocha_casperjs']);
 };

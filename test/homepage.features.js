@@ -17,10 +17,18 @@ describe('homepage', function(){
   });
 
   it('When a player exists in the db, its name is shown', function() {
-      casper.then(function(){
-        expect("body").to.contain.text("Rich")
-        expect("body").not.to.contain.text("There are no players")
+    casper.then(function(){
+      'form[action="/"]'.should.be.inDOM.and.be.visible
+      'input[name="name"]'.should.be.inDOM.and.be.visible
+      this.fill('form[action="/"]',{
+        name: 'Rich'
+      }, true);
+      this.click('input[value="submit"]')
       });
+    casper.then(function(){
+      expect("body").to.contain.text("Rich");
+      expect("body").not.to.contain.text("There are no players");
+    });
   });
 
 });
