@@ -5,7 +5,7 @@ var routes = function(app, router) {
   router.route('/players')
 
     .get(function(request, response) {
-      Player.find(function(err, players) {
+      Player.find().sort('rank').exec(function(err, players) {
         if (err)
           response.send(err)
         response.json(players);

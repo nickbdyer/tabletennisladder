@@ -2,22 +2,26 @@
 <html ng-app="TableTennisLadder">
   <head>
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
-      <script src="/bower_components/jquery/dist/jquery.js"></script>
-      <script src="/bower_components/angular/angular.js"></script>
-      <script src="/bower_components/angular-resource/angular-resource.js"></script>
-      <script src="js/controllers/main.js"></script>
-      <script src="js/services/players.js"></script>
-      <script src="js/core.js"></script>
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/angular-resource/angular-resource.js"></script>
+    <script src="js/controllers/main.js"></script>
+    <script src="js/services/players.js"></script>
+    <script src="js/core.js"></script>
     <title>Table Tennis Lads</title>
   </head>
   <body ng-controller="mainController">  
     <h1>Table Tennis Lads</h1>
-    <playerlist ng-repeat="player in players">
-      <label>
-        {{ player.name }} (Rank: {{ player.rank }})
-        <button class="btn btn-danger btn-xs" ng-click="deletePlayer(player._id)">Delete Player</button>
-      </label>
-    </playerlist>
+    <div class="row">
+      <div class="col-md-4 col-sm-offset-4">
+        <playerlist ng-repeat="player in players">
+        <label>
+          <h3> {{ player.name }} (Rank: {{ player.rank }}) </h3>
+          <button class="btn btn-danger btn-xs" ng-click="deletePlayer(player._id)">Delete Player</button>
+        </label>
+        </playerlist>
+      </div>
+    </div>
     <p>There are no players</p>
     <form>
       <input class="form-control" type="text" ng-model="formData.name">
