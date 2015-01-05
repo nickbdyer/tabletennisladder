@@ -11,11 +11,7 @@
   </head>
   <body ng-controller="TableTennisLadderController">  
     <h1>Table Tennis Lads</h1>
-    <ul>
-      <% playerlist.forEach(function(player){ %>
-      <li><%= player.name %></li>
-      <% }); %>
-    </ul>
+
     <p>There are no players</p>
     <form action="/" method="post">
       <input class="form-control" type="text" name="name">
