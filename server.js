@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+var router = express.Router();
 var mongoose = require('mongoose');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
@@ -29,7 +30,7 @@ app.use('/bower_components', express.static(__dirname + '/bower_components'));
 app.use('/app/app.js', express.static(__dirname + '/app/app.js'));
 app.use('/app/tableTennisLadderController.js', express.static(__dirname + '/app/tableTennisLadderController.js'));
 
-require('./app/routes')(app);
+require('./app/routes')(app, router);
 
 server.listen(3000, function(){
   console.log('Server listening on port 3000');

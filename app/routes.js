@@ -1,24 +1,37 @@
 var Player = require('./models/Player');
-var routes = function(app) {
+var routes = function(app, router) {
 
-  app.get('*', function(request, response){
-    response.sendfile('./public/index.html')
+  app.get('/', function(request, response){
+    response.sendFile('./public/index.html')
   });
 
-  app.post('/', function(request, response){
-    var player = new Player();
-    player.name = request.body.name
-    player.save(function(err) {
-      if (err) {
-        response.send(err)
-      }
-      console.log("player created")
+  router.route('/players')
+
+    .get(function(request, response) {
+      Player.find(function(err, players) {
+        if (err)
+          response.send(err)
+        response.json(players);
+      });
     })
-    Player.find(function (err, players) {
-      if(err) return next(err);
+
+    .post(function(request, response){
+      Player.create({
+        name : request.body.name,
+        rank : 12
+      }, function(err, player) {
+        if (err)
+          response.send(err)
+      Player.find(function(err, players) {
+        if (err)
+          response.send(err)
+        response.json(players);
+      });
+      });
+    console.log(Player.find())  
     });
-    response.render("index.ejs", {playerlist: players});
-  });
+
+  app.use('/api', router);
 
 }
 
