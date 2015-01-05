@@ -15,21 +15,21 @@ var routes = function(app, router) {
       });
     })
 
-    .post(function(request, response){
-      Player.create({
-        name : request.body.name,
-        rank : 12
-      }, function(err, player) {
-        if (err)
-          response.send(err)
+  .post(function(request, response){
+    Player.create({
+      name : request.body.name,
+      rank : 12
+    }, function(err, player) {
+      if (err)
+        response.send(err)
       Player.find(function(err, players) {
         if (err)
           response.send(err)
         response.json(players);
       });
-      });
-    console.log(Player.find())  
     });
+    console.log(Player.find())  
+  });
 
   app.use('/api', router);
 
@@ -42,7 +42,37 @@ var routes = function(app, router) {
         response.json(player);
 
       });
+    })
+
+
+  .put(function(request, response){
+    Player.findById(request.params.player_id, function(err, player){
+
+      if (err)
+        response.send(err);
+      player.name = request.body.name,
+      player.rank = request.body.rankname ? request.body.rank : player.rank
+
+        player.save(function(err) {
+          if (err)
+            response.send(err);
+          response.json({ message: 'Player updated!'});
+        });
     });
+  })
+
+
+  router.route('/players/:player_id')
+    .delete(function(request, response){
+      Player.remove({
+        _id: request.params.player_id
+      }, function(err, player){
+
+        if (err)
+          response.send(err);
+        response.json({message: 'Successfully deleted'});
+      });
+    })
 
 }
 
