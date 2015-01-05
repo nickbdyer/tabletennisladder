@@ -33,6 +33,17 @@ var routes = function(app, router) {
 
   app.use('/api', router);
 
+  router.route('/players/:player_id')
+    .get(function(request, response){
+      Player.findById(request.params.player_id, function(err, player){
+
+        if (err)
+          response.send(err);
+        response.json(player);
+
+      });
+    });
+
 }
 
 module.exports = routes;
