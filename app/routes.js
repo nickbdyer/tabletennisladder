@@ -1,9 +1,6 @@
 var Player = require('./models/Player');
 var routes = function(app, router) {
 
-  app.get('/', function(request, response){
-    response.sendFile('./public/index.html')
-  });
 
   router.route('/players')
 
@@ -18,7 +15,7 @@ var routes = function(app, router) {
   .post(function(request, response){
     Player.create({
       name : request.body.name,
-      rank : 12
+      rank : request.body.rank
     }, function(err, player) {
       if (err)
         response.send(err)
@@ -73,6 +70,8 @@ var routes = function(app, router) {
         response.json({message: 'Successfully deleted'});
       });
     })
+
+
 
 }
 

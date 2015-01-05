@@ -1,21 +1,25 @@
 <!DOCTYPE HTML> 
 <html ng-app="TableTennisLadder">
   <head>
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
-      <script src="bower_components/jquery/dist/jquery.js"></script>
-      <script src="bower_components/angular/angular.js"></script>
-      <script src="bower_components/angular-resource/angular-resource.js"></script>
-      <script src="app/app.js"></script>
-      <script src="app/tableTennisLadderController.js"></script>
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
+      <script src="/bower_components/jquery/dist/jquery.js"></script>
+      <script src="/bower_components/angular/angular.js"></script>
+      <script src="/bower_components/angular-resource/angular-resource.js"></script>
+      <script src="js/controllers/main.js"></script>
+      <script src="js/services/players.js"></script>
+      <script src="js/core.js"></script>
     <title>Table Tennis Lads</title>
   </head>
-  <body ng-controller="TableTennisLadderController">  
+  <body ng-controller="mainController">  
     <h1>Table Tennis Lads</h1>
-
+    <ul ng-repeat="player in players">
+      <li> {{ player.name }} (Rank: {{ player.rank }})</li>
+    </ul>
     <p>There are no players</p>
-    <form action="/" method="post">
-      <input class="form-control" type="text" name="name">
-      <input class="btn btn-default btn-primary" type="submit" value="add-player">
+    <form>
+      <input class="form-control" type="text" ng-model="formData.name">
+      <input class="form-control" type="text" ng-model="formData.rank">
+      <button class="btn btn-default btn-primary" type="submit" ng-click="createPlayer()">Add Player</button>
     </form>
   </body>
 </html>

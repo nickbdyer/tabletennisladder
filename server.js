@@ -32,8 +32,14 @@ app.use('/app/tableTennisLadderController.js', express.static(__dirname + '/app/
 
 require('./app/routes')(app, router);
 
+app.get('*', function(request, response){
+    response.sendFile(__dirname + '/public/index.html');
+});
+
 server.listen(3000, function(){
   console.log('Server listening on port 3000');
 });
+
+
 
 module.exports = server;
