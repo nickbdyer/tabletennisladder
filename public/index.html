@@ -14,6 +14,7 @@
     <h1>Table Tennis Lads</h1>
     <div class="row">
       <div class="col-md-4 col-sm-offset-4">
+       
         <playerlist ng-repeat="player in players">
         <label>
           <h3> {{ player.name }} (Rank: {{ player.rank }}) </h3>
@@ -22,11 +23,11 @@
         </playerlist>
       </div>
     </div>
-    <p>There are no players</p>
-    <form>
-      <input class="form-control" type="text" ng-model="formData.name">
+    <noplayers ng-hide="players">There are no players</noplayers>
+    <form id="addplayer">
+      <input name="name" class="form-control" type="text" ng-model="formData.name">
       <input class="form-control" type="text" ng-model="formData.rank">
-      <button class="btn btn-default btn-primary" type="submit" ng-click="createPlayer()">Add Player</button>
+      <button class="btn btn-default btn-primary" type="submit" value="Add Player" ng-click="createPlayer()">Add Player</button>
     </form>
   </body>
 </html>

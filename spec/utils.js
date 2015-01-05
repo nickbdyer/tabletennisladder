@@ -1,6 +1,6 @@
 'use strict';
 
-var config = require('../config');
+var config = require('../config/database.js');
 var mongoose = require('mongoose');
 
 // ensure the NODE_ENV is set to 'test'

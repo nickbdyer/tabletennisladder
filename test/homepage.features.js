@@ -11,23 +11,22 @@ describe('homepage', function(){
 
   it('When there are no players a player can be added', function(){
     casper.then(function(){
-      'input[value="add-player"]'.should.be.inDOM.and.be.visible;
-      expect("body").to.contain.text("Table Tennis Lads");
+      'button[value="Add Player"]'.should.be.inDOM.and.be.visible;
     });
   });
 
   it('When a player exists in the db, its name is shown', function() {
     casper.then(function(){
-      'form[action="/"]'.should.be.inDOM.and.be.visible
+      'form[id="addplayer"]'.should.be.inDOM.and.be.visible
       'input[name="name"]'.should.be.inDOM.and.be.visible
-      this.fill('form[action="/"]',{
+      this.fill('form[id="addplayer"]',{
         name: 'Rich'
       }, true);
-      this.click('input[value="add-player"]')
+      this.click('button[value="Add Player"]')
       });
     casper.thenOpen('http://localhost:3000/', function(){
       expect("body").to.contain.text("Rich");
-      expect("body").not.to.contain.text("There are no players");
+      'noplayers'.should.be.inDOM.and.not.be.visible;
     });
   });
 
