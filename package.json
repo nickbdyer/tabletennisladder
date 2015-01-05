@@ -49,6 +49,8 @@
     "ejs": "^1.0.0",
     "express": "^4.10.6",
     "mongodb": "^1.4.26",
+    "morgan": "~1.2.2",
+    "method-override": "~2.1.2",
     "mongoose": "^3.8.21"
   }
 }

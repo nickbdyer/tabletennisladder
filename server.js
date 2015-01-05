@@ -1,19 +1,30 @@
 var express = require('express');
 var app = express();
+var mongoose = require('mongoose');
+var morgan = require('morgan');
+var bodyParser = require('body-parser');
+var methodOverride = require('method-override');
+
 var server = require('http').createServer(app);
 var config = require('./config');
-var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var bodyParser = require('body-parser');
 var Player = require('./lib/models/Player.js');
 
- // set the 'dbUrl' to the mongodb url that corresponds to the
- // environment we are in
 app.set('dbUrl', config.db[app.settings.env]);
- // connect mongoose to the mongo dbUrl
 mongoose.connect(app.get('dbUrl'));
 
-app.use(bodyParser.urlencoded({ extended: false }));
+var mdb = mongoose.connection;
+mdb.on('error', console.error.bind(console, 'connection error:'));
+mdb.once('open', function (callback) {
+    console.log("yay!")
+  });
+
+app.use(express.static(__dirname + '/public'));                 // set the static files location /public/img will be /img for users
+app.use(morgan('dev'));                                         // log every request to the console
+app.use(bodyParser.urlencoded({'extended':'true'}));            // parse application/x-www-form-urlencoded
+app.use(bodyParser.json());                                     // parse application/json
+app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
+app.use(methodOverride());
 
 app.use(express.static(__dirname + '/views'));
 app.use('/bower_components', express.static(__dirname + '/bower_components'));
@@ -43,14 +54,6 @@ app.post('/', function(request, response){
   });
   response.render("index.ejs", {playerlist: players});
 });
-
-
-var mdb = mongoose.connection;
-mdb.on('error', console.error.bind(console, 'connection error:'));
-mdb.once('open', function (callback) {
-    console.log("yay!")
-  });
-
 
 server.listen(3000, function(){
   console.log('Server listening on port 3000');
