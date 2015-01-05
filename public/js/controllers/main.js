@@ -20,7 +20,7 @@ angular.module("playerController", [])
     };
 
     $scope.deletePlayer = function(id) {
-      Player.delete(id)
+      Players.delete(id)
       .success(function(data) {
         $scope.players = data;
       });

@@ -67,7 +67,11 @@ var routes = function(app, router) {
 
         if (err)
           response.send(err);
-        response.json({message: 'Successfully deleted'});
+      Player.find(function(err, players) {
+        if (err)
+          response.send(err)
+        response.json(players);
+      });
       });
     })
 

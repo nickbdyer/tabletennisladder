@@ -12,9 +12,12 @@
   </head>
   <body ng-controller="mainController">  
     <h1>Table Tennis Lads</h1>
-    <ul ng-repeat="player in players">
-      <li> {{ player.name }} (Rank: {{ player.rank }})</li>
-    </ul>
+    <playerlist ng-repeat="player in players">
+      <label>
+        {{ player.name }} (Rank: {{ player.rank }})
+        <button class="btn btn-danger btn-xs" ng-click="deletePlayer(player._id)">Delete Player</button>
+      </label>
+    </playerlist>
     <p>There are no players</p>
     <form>
       <input class="form-control" type="text" ng-model="formData.name">
