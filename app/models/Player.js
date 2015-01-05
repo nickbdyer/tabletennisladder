@@ -8,12 +8,4 @@ var PlayerSchema = new Schema({
 
 var Player = mongoose.model('Player', PlayerSchema);
 
-var playerList = function(request, response, Player) {
-  Player.find().sort('rank').exec(function(err, players) {
-    if (err)
-      response.send(err)
-    response.json(players);
-  })
-};
-
 module.exports = Player; 
