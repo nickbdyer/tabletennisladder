@@ -42,21 +42,10 @@
       </tr>
     </tbody>
     </table>
-    <div class="row">
-      <div class="col-md-6 col-sm-offset-4">
-       
-        <playerlist ng-repeat="player in players">
-        <label>
-          <h3> {{ player.name }} (Rank: {{ player.rank }}) </h3>
-          <button class="btn btn-danger btn-xs col-md-3 col-sm-offset-4" ng-click="deletePlayer(player._id)">Delete Player</button>
-        </label>
-        </playerlist>
-      </div>
-    </div>
     <noplayers ng-hide="players">There are no players</noplayers>
-    <form id="addplayer">
-      <input name="name" class="form-control" type="text" ng-model="formData.name">
-      <input class="form-control" type="text" ng-model="formData.rank">
+    <form id="addplayer" class="col-lg-6">
+      <input name="name" placeholder="Name" class="form-control col-md-4" type="text" ng-model="formData.name">
+      <input class="form-control col-md-4" placeholder="Rank" type="text" ng-model="formData.rank">
       <button class="btn btn-default btn-primary" type="submit" value="Add Player" ng-click="createPlayer()">Add Player</button>
     </form>
   </body>
