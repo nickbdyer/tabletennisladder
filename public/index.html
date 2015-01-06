@@ -8,16 +8,18 @@
     <script src="js/controllers/main.js"></script>
     <script src="js/services/players.js"></script>
     <script src="js/core.js"></script>
-    <title>Table Tennis Lads</title>
+    <title>Table Tennis LADder</title>
   </head>
   <body ng-controller="mainController">  
-    <h1>Table Tennis Lads</h1>
+    <h1>Table Tennis LADder</h1>
     <table class="table">
     <thead>
       <tr>
         <th>Rank</th>
         <th>Ladder</th>
-        <th>Stats</th>
+        <th>Won</th>
+        <th>Lost</th>
+        <th>Played</th>
         <th>Actions</th>
       </tr>
     </thead>
@@ -26,7 +28,9 @@
         <td><h3> {{ player.rank }} </h3></td>
         <td><h3> {{ player.name }} </h3></td>
         <td></td>
-        <td><button class="btn btn-danger btn-xs col-md-3 col-sm-offset-4" ng-click="deletePlayer(player._id)">Delete Player</button></td>
+        <td></td>
+        <td></td>
+        <td><button class="btn btn-danger btn-xs" ng-click="deletePlayer(player._id)">Delete Player</button></td>
       </tr>
     </tbody>
     </table>
