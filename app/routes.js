@@ -19,7 +19,7 @@ var routes = function(app, router) {
     }, function(err, player) {
       if (err)
         response.send(err)
-      Player.find(function(err, players) {
+      Player.find().sort('rank').exec(function(err, players) {
         if (err)
           response.send(err)
         response.json(players);
@@ -67,7 +67,7 @@ var routes = function(app, router) {
 
         if (err)
           response.send(err);
-      Player.find(function(err, players) {
+      Player.find().sort('rank').exec(function(err, players) {
         if (err)
           response.send(err)
         response.json(players);
