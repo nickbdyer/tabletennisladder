@@ -4,6 +4,11 @@ Table Tennis Ladder
 Christmas project at Makers Academy, create a table tennis ladder, for use
 for the final few weeks. 
 
+In total 4 table tennis heroes were involved in this project: [Alex
+Blease](https://github.com/ablease), [Ben Conway](https://github.com/Benc93),
+[Rich Lake](https://github.com/ralake) and [Nick
+Dyer](https://github.com/nickbdyer).
+
 - The problem
 
   This project was inspired by the work carried out by 3 of our senior cohort, 
@@ -74,3 +79,14 @@ $ grunt jasmine-node
 Jasmine is our preffered unit testing framework of choice. Configured
 with grunt we simply need to run
 to run our unit tests. 
+
+###Improvements
+
+- This project repo was abandoned in favour of a new repo for the same project.
+  We chose to start again from scratch in an effort to do a full agile project,
+  and improve our testing and code quality.
+- More Testing. Testing was very difficult on this project because we found ourselves spending
+  a huge amount of time writing "correct" tests. Testing was and remains
+  a tricky thing to get right in a Node environment.
+
+
