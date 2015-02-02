@@ -1,6 +1,8 @@
 Table Tennis Ladder
 ===================
 
+[![Code Climate](https://codeclimate.com/github/nickbdyer/tabletennisladder/badges/gpa.svg)](https://codeclimate.com/github/nickbdyer/tabletennisladder)
+
 Christmas project at Makers Academy, create a table tennis ladder, for use
 for the final few weeks. 
 
